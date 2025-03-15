@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Store } from '@ngrx/store';
+import { login } from '../../store/auth.actions';
 
 @Component({
   selector: 'app-login',
@@ -9,6 +11,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 })
 export class LoginComponent implements OnInit {
   public loginForm!:FormGroup
+  private store$ = inject(Store)
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
@@ -21,6 +24,8 @@ export class LoginComponent implements OnInit {
     if(this.loginForm.invalid) return
 
     console.log(this.loginForm.value);
+    this.store$.dispatch(login(this.loginForm.value))
+    this.loginForm.reset()
     
   }
 
