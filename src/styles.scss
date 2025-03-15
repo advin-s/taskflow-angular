@@ -1,1 +1,47 @@
 /* You can add global styles to this file, and also import other style files */
+@import '../node_modules/bootstrap/scss/functions';
+@import '../node_modules/bootstrap/scss/variables';
+@import '../node_modules/bootstrap/scss/mixins';
+
+:root{
+    --primary:rgb(108, 99, 255);
+}
+
+
+// Define Custom Colors (Neutrals & Pastels)
+$primary: #6C63FF; // Soft Indigo
+$secondary: #FF6B6B; // Coral Red
+$success: #50E3C2; // Pastel Teal
+$info: #56CCF2; // Light Blue
+$warning: #FFD166; // Soft Yellow
+$danger: #FF4D4D; // Warm Red
+$light: #F8F9FA; // Light Gray
+$dark: #343A40; // Dark Gray
+
+// Override Bootstrap theme colors
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "success": $success,
+  "info": $info,
+  "warning": $warning,
+  "danger": $danger,
+  "light": $light,
+  "dark": $dark
+);
+
+
+@import '../node_modules/bootstrap/scss/bootstrap';
+
+
+@for $i from 10 through 35{
+    .fs-#{$i}px{
+        font-size: #{$i}px;
+    }
+    .h-#{$i}px{
+        height: #{$i}px;
+    }
+    .w-#{$i}px{
+        width: #{$i}px;
+    }
+}
