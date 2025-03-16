@@ -1,0 +1,14 @@
+<section class="vh-100 bg-dark">
+  <div class="container h-100">
+    <div class="row h-100 align-items-center justify-content-center">
+        <div class="col-12">
+            <div class="d-flex flex-column gap-3 align-items-center text-white">
+                <h1 class="display-1 fw-medium mb-0">404</h1>
+                <p class="mb-0 fs-3 fw-bold">Page not found</p>
+                <p class="mb-0">Oops! The page you're looking for doesn't exist.</p>
+                <button class="btn btn-outline-light" [routerLink]="[loggedIn ? '/tasks':'/login']" >Back to {{loggedIn ? 'tasks' :'login'}}</button>
+            </div>
+        </div>
+    </div>
+  </div>
+</section>

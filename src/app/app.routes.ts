@@ -53,4 +53,8 @@ export const routes: Routes = [
       import('./tasks/tasks.component').then((c) => c.TasksComponent),
     canMatch: [authGuard],
   },
+  {
+    path:'**',
+    loadComponent:()=> import('./not-found/not-found.component').then(c => c.NotFoundComponent)
+  }
 ];
