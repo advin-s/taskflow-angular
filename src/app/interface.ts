@@ -15,7 +15,13 @@ export interface LoginSuccessResponse{
     token:string,
 }
 
-export interface LoginFailedResponse{
+export interface AuthFailedResponse{
     status:string,
     error:string
+}
+
+export interface SignupSuccessResponse{
+    status:string,
+    token:string,
+    data:{}
 }

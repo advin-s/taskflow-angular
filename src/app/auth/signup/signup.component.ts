@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {
   AbstractControl,
   FormControl,
@@ -8,6 +8,8 @@ import {
   ValidatorFn,
   Validators,
 } from '@angular/forms';
+import { Store } from '@ngrx/store';
+import { signup } from '../../store/auth.actions';
 
 @Component({
   selector: 'app-signup',
@@ -17,6 +19,7 @@ import {
 })
 export class SignupComponent {
   public signupForm!: FormGroup;
+  private store$ = inject(Store)
 
   ngOnInit() {
     this.signupForm = new FormGroup({
@@ -43,6 +46,7 @@ export class SignupComponent {
   onSubmit() {
     if(this.signupForm.invalid) return
     console.log(this.signupForm.value);
+    this.store$.dispatch(signup({signup:this.signupForm.value}))
     
   }
 }
