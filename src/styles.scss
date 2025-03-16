@@ -33,6 +33,11 @@ $theme-colors: (
 
 @import '../node_modules/bootstrap/scss/bootstrap';
 
+body{
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+}
+
 
 @for $i from 10 through 35{
     .fs-#{$i}px{
